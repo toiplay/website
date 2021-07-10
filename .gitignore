@@ -32,8 +32,3 @@ yarn-error.log*
 
 # vercel
 .vercel
-
-social.json
-pages/imprint.tsx
-pages/privacy.tsx
-util/mail.ts
