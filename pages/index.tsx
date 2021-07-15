@@ -104,7 +104,7 @@ max-width: 1200px;
 `;
 
 const Feature = styled.div`
-width: clamp(90%,500px,95%);
+width: clamp(0px, 500px, 95%);
 margin: 25px;
 padding: 20px 40px;
 border: none;
