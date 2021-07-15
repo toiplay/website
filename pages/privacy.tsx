@@ -8,9 +8,8 @@ import Container from '@components/container';
 import { PageTitle } from '@components/title';
 import Section from '@components/section';
 import Link from '@components/link';
-import Text from '@components/text';
-import BoldText from '@components/text/bold';
-import SubTitle from '@components/title/sub';
+import Text, { BoldText } from '@components/text';
+import SubTitle from '@components/subtitle';
 
 const PrivacyPage: React.FunctionComponent = (): React.ReactElement => (
     <Page>

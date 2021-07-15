@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
-import baseText from './base/text';
-
 const Button = styled.button`
-${baseText}
+font-family: var(--font-family);
+font-weight: 500;
 font-size: 1rem;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+-webkit-font-smoothing: antialiased;
+user-select: none;
 border: none;
 border-radius: 3px;
 background: #1952BE;

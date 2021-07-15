@@ -8,15 +8,13 @@ import { AnimateSharedLayout } from 'framer-motion';
 
 import Link from '@components/link';
 
-import baseText from '@components/base/text';
-
 const Navbar = styled.nav<{ top: boolean }>`
 position: fixed;
 left: 0;
 top: 0;
 right: 0;
 bottom: calc(100vh - 80px);
-width: 100vw;
+width: 100%;
 height: 80px;
 background: #FFFFFF;
 display: flex;
@@ -35,9 +33,14 @@ transition: 300ms box-shadow;
 `;
 
 const NavbarLogo = styled.h1`
-${baseText}
-font-size: 1.2rem;
+font-family: var(--font-family);
 font-weight: 800;
+font-size: 1.2rem;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+-webkit-font-smoothing: antialiased;
+user-select: none;
 display: flex;
 align-items: center;
 margin-left: 20px;
@@ -54,10 +57,15 @@ margin-right: 15px;
 `;
 
 const NavbarLinkList = styled.ul`
+padding: 0;
 list-style-type: none;
 @media only screen and (min-width: 800px) {
     margin-left: auto;
 }
+`;
+
+const NavbarLinkListItem = styled.li`
+display: inline;
 `;
 
 const NavbarLink = styled(Link)`
@@ -81,7 +89,7 @@ const Application: React.FunctionComponent<any> = ({ Component, pageProps }): Re
 
     useEffect((): (() => void) => {
 
-        const scrollListener = (event: MouseEvent): void => setScroll(window.scrollY);
+        const scrollListener = (): void => setScroll(window.scrollY);
 
         window.addEventListener('scroll', scrollListener)
 
@@ -105,8 +113,8 @@ const Application: React.FunctionComponent<any> = ({ Component, pageProps }): Re
                     Krahforst
                 </NavbarLogo>
                 <NavbarLinkList>
-                    <NavbarLink href="/">Start</NavbarLink>
-                    <NavbarLink href="/status">Status</NavbarLink>
+                    <NavbarLinkListItem><NavbarLink href="/">Start</NavbarLink></NavbarLinkListItem>
+                    <NavbarLinkListItem><NavbarLink href="/status">Status</NavbarLink></NavbarLinkListItem>
                 </NavbarLinkList>
             </Navbar>
             <AnimateSharedLayout>

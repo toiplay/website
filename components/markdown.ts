@@ -33,6 +33,13 @@ p {
     margin: 10px 0;
     font-weight: 400;
     color: #000000;
+    /* code {
+        display: block;
+        margin: 5px 0;
+    } */
+    code {
+        white-space: pre;
+    }
 }
 a {
     font-weight: 400;

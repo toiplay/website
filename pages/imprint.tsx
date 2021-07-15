@@ -7,10 +7,9 @@ import Page from '@components/page';
 import Container from '@components/container';
 import { PageTitle } from '@components/title';
 import Section from '@components/section';
-import SubTitle from '@components/title/sub';
+import SubTitle from '@components/subtitle';
 import Link from '@components/link';
-import Text from '@components/text';
-import BoldText from '@components/text/bold';
+import Text, { BoldText } from '@components/text';
 import Label from '@components/label';
 
 import email from 'util/mail';

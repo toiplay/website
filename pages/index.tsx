@@ -4,7 +4,7 @@ import Head from 'next/head';
 
 import Text from '../components/text';
 import Label from '../components/label';
-import SmallTitle from '@components/title/small';
+import SmallTitle from '@components/smalltitle';
 
 import social from '../social.json';
 
@@ -12,7 +12,6 @@ import styled from 'styled-components';
 
 import email from 'util/mail';
 
-import baseText from '@components/base/text';
 import { FadeInSection } from '@components/section';
 import Title from '@components/title';
 import Link from '@components/link';
@@ -49,9 +48,14 @@ z-index: 1;
 `;
 
 const MainSubTitle = styled.h2`
-${baseText}
+font-family: var(--font-family);
 font-weight: 800;
 font-size: 3.5rem;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+-webkit-font-smoothing: antialiased;
+user-select: none;
 color: #111111;
 `;
 
@@ -100,14 +104,14 @@ max-width: 1200px;
 `;
 
 const Feature = styled.div`
+width: clamp(90%,500px,95%);
+margin: 25px;
+padding: 20px 40px;
 border: none;
 border-radius: 12px;
-width: 500px;
 min-height: 150px;
 background: #FFFFFF;
 box-shadow: 0 22px 45px 0 rgba(0, 0, 0, 0.11);
-margin: 25px;
-padding: 20px 40px;
 @media only screen and (min-width: 800px) {
     margin: 50px;
     &:nth-child(even) {
@@ -266,7 +270,7 @@ const IndexPage: React.FunctionComponent = (): React.ReactElement => (
                 Ich bin höchst interessiert in Informatik, Mathematik und weiteren Naturwissenschaften wie z.B. Astronomie, da mich das Universum fasziniert.
                 </Text>
                 <Text>
-                Deswegen belege deswegen auch beim Abitur den Mathematik-<Link href="https://de.wikipedia.org/wiki/Gymnasiale_Oberstufe#Leistungskurse" target="_blank">Leistungkurs</Link>.
+                Deswegen belege deswegen auch beim Abitur den Mathematik-<Link href="https://de.wikipedia.org/wiki/Gymnasiale_Oberstufe#Leistungskurse" target="_blank" rel="noreferrer">Leistungkurs</Link>.
                 </Text>
             </InfoContainer>
         </AboutSection>

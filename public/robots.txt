@@ -3,3 +3,6 @@ Disallow: /
 
 User-Agent: Google
 Allow: /
+
+User-agent: Twitterbot
+Allow: /

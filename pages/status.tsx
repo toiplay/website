@@ -19,7 +19,7 @@ import Status from '../enums/status/status';
 import Page from '@components/page';
 import Container from '@components/container';
 import { PageTitle } from '@components/title';
-import { CenteredSubTitle } from '@components/title/sub';
+import { CenteredSubTitle } from '@components/subtitle';
 import Text from '@components/text';
 
 import List from '@components/list';
