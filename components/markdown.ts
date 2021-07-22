@@ -8,6 +8,9 @@ import '@fontsource/inter/700.css';
 import '@fontsource/inter/600.css';
 import '@fontsource/inter/500.css';
 
+import '@fontsource/zilla-slab/700.css';
+import '@fontsource/zilla-slab/600.css';
+
 import 'prism-themes/themes/prism-vsc-dark-plus.css';
 
 const Markdown = styled.article`
@@ -17,12 +20,26 @@ text-rendering: optimizeLegibility;
 font-kerning: normal;
 font-feature-settings: 'kern', 'liga', 'clig', 'calt';
 -webkit-font-smoothing: antialiased;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Zilla Slab', var(--font-family);
+}
 h1 {
-    font-weight: 900;
-    font-size: 2.5rem;
+    /* display: inline-block;
+    position: relative; */
+    font-weight: 700;
+    font-size: 3rem;
+    /* &:before {
+        content: '';
+        position: absolute;
+        width: 50%;
+        height: 4px;
+        bottom: 0;
+        top: 110%;
+        border-bottom: 4px solid #000000;
+    } */
 }
 h2 {
-    font-weight: 800;
+    font-weight: 600;
     font-size: 1.75rem;
 }
 h3 {

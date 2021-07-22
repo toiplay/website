@@ -1,10 +1,11 @@
 const withOffline = require('next-offline');
-// const withPWA = require('next-pwa');
+
+require('dotenv').config();
 
 module.exports = withOffline({
     trailingSlash: true,
     poweredByHeader: false,
     future: {
-        webpack5: true,
+        webpack5: true
     }
 });

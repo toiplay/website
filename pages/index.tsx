@@ -234,11 +234,11 @@ const IndexPage: React.FunctionComponent = (): React.ReactElement => (
                 <Feature>
                     <SmallTitle>🔓 Datenschutz im Fokus</SmallTitle>
                     <Text>Ich erhebe keine personenbezogene Daten, solange es nicht nötig ist.</Text>
-                    <Label>* Nur bei freiwilliger Eingabe der Daten und einer Erlaubnis des Nutzers</Label>
+                    <Label>* Nur bei freiwilliger Eingabe der Daten und der Einwilligung des Nutzers der <Link href="/privacy">Datenschutzerklärung</Link>.</Label>
                 </Feature>
                 <Feature>
-                    <SmallTitle>💰 Komplett kostenlos ohne Werbung</SmallTitle>
-                    <Text>Ich verdiene keinen einzigen Cent mit meinen Diensten. Weder durch Werbung noch durch sonst irgendwas.</Text>
+                    <SmallTitle>💰 Komplett kostenlos, ohne Werbung</SmallTitle>
+                    <Text>Ich verdiene keinen einzigen Cent mit meinen Diensten, da ich keine Werbung anzeige und kein Geld verlange.</Text>
                 </Feature>
                 <Feature>
                     <SmallTitle>🎨 Möglichst Modern</SmallTitle>
@@ -246,16 +246,16 @@ const IndexPage: React.FunctionComponent = (): React.ReactElement => (
                 </Feature>
                 <Feature>
                     <SmallTitle>🔐 Bestmögliche Sicherheit</SmallTitle>
-                    <Text>Alle Daten und Verbindungen werden vollständig verschlüsselt.</Text>
-                    <Label>* In der Datenbank können nicht alle Informationen wie z.B. die Konto-Id verschlüsselt werden, da sonst die Funktionalität nicht gewährleistet werden kann.</Label>
+                    <Text>Ich sorge dafür, dass alle Daten und Verbindungen vollständig verschlüsselt werden.</Text>
+                    <Label>* In der Datenbank können nicht alle Informationen wie z.B. <Link href="https://de.wiktionary.org/wiki/ID" target="_blank">ID</Link>'s nicht verschlüsselt werden, da sonst die Funktionalität nicht gewährleistet werden kann.</Label>
                 </Feature>
                 <Feature>
                     <SmallTitle>💻 Mit Leidenschaft</SmallTitle>
-                    <Text>Ich programmiere mit Freude und fast jeden Tag, da ich Naturwissenschaften 💗</Text>
+                    <Text>Ich programmiere fast jeden Tag und probiere verschiedenste Dinge aus.</Text>
                 </Feature>
                 <Feature>
                     <SmallTitle>🧒 Junge Zielgruppe</SmallTitle>
-                    <Text>Ich erreiche eine junge Zielgruppe, da ich selber noch relativ jung bin.</Text>
+                    <Text>Ich erreiche eine relativ junge Zielgruppe, da ich selber noch jung bin.</Text>
                 </Feature>
             </FeaturesContainer>
         </FeaturesSection>
@@ -270,8 +270,9 @@ const IndexPage: React.FunctionComponent = (): React.ReactElement => (
                 Ich bin höchst interessiert in Informatik, Mathematik und weiteren Naturwissenschaften wie z.B. Astronomie, da mich das Universum fasziniert.
                 </Text>
                 <Text>
-                Deswegen belege deswegen auch beim Abitur den Mathematik-<Link href="https://de.wikipedia.org/wiki/Gymnasiale_Oberstufe#Leistungskurse" target="_blank" rel="noreferrer">Leistungkurs</Link>.
+                Deswegen belege ich auch beim Abitur den Mathematik-<Link href="https://de.wikipedia.org/wiki/Gymnasiale_Oberstufe#Leistungskurse" target="_blank" rel="noreferrer">Leistungkurs</Link> und einen Informatikkurs.
                 </Text>
+
             </InfoContainer>
         </AboutSection>
 
@@ -299,7 +300,7 @@ const IndexPage: React.FunctionComponent = (): React.ReactElement => (
                 Im ersten Quartal 2019 begann ich mit Angular und React, von welchem ich nur React ausführlich behandelt bzw. gelernt habe.
                 </Text>
                 <Text>
-                Im März 2021 habe ich Go gelernt und schließlich meine API und Server-Systemverwaltung damit gebaut.
+                Im März 2021 habe ich Go gelernt und schließlich meine API und Server-Systemverwaltung damit gemacht.
                 </Text>
             </InfoContainer>
         </InfoSection>

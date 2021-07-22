@@ -41,12 +41,19 @@ const ImprintPage: React.FunctionComponent = (props): React.ReactElement => (
         </Head>
 
         <Container>
-            <PageTitle>Impressum</PageTitle>
+            <PageTitle>📜 Impressum</PageTitle>
             { typeof window !== 'undefined' && (
-                <Section>
-                    <SubTitle>Kontakt</SubTitle>
-                    <Text>E-Mail: <Link href={typeof window !== undefined ? `mailto:${email}` : null}>{ email }</Link></Text>
-                </Section>
+                <React.Fragment>
+                    <Section>
+                        <SubTitle>Verantwortlicher / Dienstanbieter</SubTitle>
+                        <Text>Steven Krahforst</Text>
+                    </Section>
+                    <Section>
+                        <SubTitle>Kontakt</SubTitle>
+                        <Text>E-Mail: <Link href={typeof window !== undefined ? `mailto:${email}` : null}>{ email }</Link></Text>
+                        <Text>Kontakt-Formular: Aufgrund von Ausnutzung entfernt<Link href="#notice">*</Link></Text>
+                    </Section>
+                </React.Fragment>
             ) }
             <Section>
                 <SubTitle>Haftung für Inhalte</SubTitle>
@@ -85,7 +92,9 @@ const ImprintPage: React.FunctionComponent = (props): React.ReactElement => (
                 <Text>Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.</Text>
                 <Text>Weitere Informationen zum Datenschutz gibt es in der <Link href="/privacy">Datenschutzerklärung</Link>.</Text>
             </Section>
-            <Label>* Das Impressum sollte eigentlich nicht nötig sein da ich <em>(für mich eindeutig)</em> kein Geld mit meinen Seiten und Diensten verdiene und deshalb sind keine Telefonnummer und keine Adresse angegeben</Label>
+            <Section>
+                <Label id="notice"><strong style={{ color: '#EA5557' }}>*</strong> Das Impressum sollte eigentlich nicht nötig sein, da ich <em>(für mich eindeutig)</em> kein Geld mit meinen Seiten und Diensten verdiene und deshalb sind keine Telefonnummer und keine Adresse angegeben. Ich möchte mich, meine Familie und meine Freunde damit schützen, falls irgendwelche <Link href="https://de.wikipedia.org/wiki/Troll_(Netzkultur)" target="_blank">"Trolle"</Link> mir z.B. eine Pizza zu meiner Adresse schicken oder sogar etwas schlimmeres tun würden. Bitte respektieren Sie das.</Label>
+            </Section>
             <Section>
                 <SubTitle>Inhalte</SubTitle>
                 <Text>Icons von <Link href="https://icons8.com/">Icons8</Link> und <Link href="https://feathericons.com/">FeatherIcons</Link></Text>

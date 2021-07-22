@@ -4,8 +4,6 @@ import '../styles/globals.scss';
 
 import styled, { css } from 'styled-components';
 
-import { AnimateSharedLayout } from 'framer-motion';
-
 import Link from '@components/link';
 
 const Navbar = styled.nav<{ top: boolean }>`
@@ -117,9 +115,7 @@ const Application: React.FunctionComponent<any> = ({ Component, pageProps }): Re
                     <NavbarLinkListItem><NavbarLink href="/status">Status</NavbarLink></NavbarLinkListItem>
                 </NavbarLinkList>
             </Navbar>
-            <AnimateSharedLayout>
-                <Component {...pageProps} />
-            </AnimateSharedLayout>
+            <Component {...pageProps} />
             <Footer>
                 <Link href="/imprint">Impressum</Link>
                 <Link href="/privacy">Datenschutz</Link>

@@ -5,7 +5,6 @@ import '@fontsource/inter/600.css';
 const Link = styled.a`
 font-family: var(--font-family);
 font-weight: 600;
-font-size: 1.15rem;
 text-rendering: optimizeLegibility;
 font-kerning: normal;
 font-feature-settings: 'kern', 'liga', 'clig', 'calt';
