@@ -5,21 +5,20 @@ import Head from 'next/head';
 import Page from '@components/page';
 
 import Container from '@components/container';
-import { PageTitle } from '@components/title';
+import { PageTitle, SecondaryTitle } from '@components/title';
 import Section from '@components/section';
-import SubTitle from '@components/subtitle';
 import Link from '@components/link';
 import Text, { BoldText } from '@components/text';
 import Label from '@components/label';
 
 import email from 'util/mail';
 
-const ImprintPage: React.FunctionComponent = (props): React.ReactElement => (
+const ImprintPage: React.FunctionComponent = (): React.ReactElement => (
     <Page>
 
         <Head>
             
-            <title>Steven Krahforst » Impressum</title>
+            <title>Steven Krahforst » 📜 Impressum</title>
             
             <meta name="robots" content="none" />
             <meta name="googlebot" content="none" />
@@ -45,18 +44,18 @@ const ImprintPage: React.FunctionComponent = (props): React.ReactElement => (
             { typeof window !== 'undefined' && (
                 <React.Fragment>
                     <Section>
-                        <SubTitle>Verantwortlicher / Dienstanbieter</SubTitle>
+                        <SecondaryTitle>Verantwortlicher</SecondaryTitle>
                         <Text>Steven Krahforst</Text>
                     </Section>
                     <Section>
-                        <SubTitle>Kontakt</SubTitle>
+                        <SecondaryTitle>Kontakt</SecondaryTitle>
                         <Text>E-Mail: <Link href={typeof window !== undefined ? `mailto:${email}` : null}>{ email }</Link></Text>
                         <Text>Kontakt-Formular: Aufgrund von Ausnutzung entfernt<Link href="#notice">*</Link></Text>
                     </Section>
                 </React.Fragment>
             ) }
             <Section>
-                <SubTitle>Haftung für Inhalte</SubTitle>
+                <SecondaryTitle>Haftung für Inhalte</SecondaryTitle>
                 <Text>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</Text>
                 <Text>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.</Text>
                 <Text>Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</Text>
@@ -65,7 +64,7 @@ const ImprintPage: React.FunctionComponent = (props): React.ReactElement => (
                 <Text>Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</Text>
             </Section>
             <Section>
-                <SubTitle>Haftung für Links</SubTitle>
+                <SecondaryTitle>Haftung für Links</SecondaryTitle>
                 <Text>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.</Text>
                 <Text>Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</Text>
                 <Text>Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.</Text>
@@ -73,7 +72,7 @@ const ImprintPage: React.FunctionComponent = (props): React.ReactElement => (
                 <Text>Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</Text>
             </Section>
             <Section>
-                <SubTitle>Urheberrecht</SubTitle>
+                <SecondaryTitle>Urheberrecht</SecondaryTitle>
                 <Text>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.</Text>
                 <Text>Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw.</Text>
                 <Text>Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.</Text>
@@ -82,7 +81,7 @@ const ImprintPage: React.FunctionComponent = (props): React.ReactElement => (
                 <Text>Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</Text>
             </Section>
             <Section>
-                <SubTitle>Datenschutz</SubTitle>
+                <SecondaryTitle>Datenschutz</SecondaryTitle>
                 <Text>Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich.</Text>
                 <Text>Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis.</Text>
                 <Text>Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.</Text>
@@ -96,11 +95,7 @@ const ImprintPage: React.FunctionComponent = (props): React.ReactElement => (
                 <Label id="notice"><strong style={{ color: '#EA5557' }}>*</strong> Das Impressum sollte eigentlich nicht nötig sein, da ich <em>(für mich eindeutig)</em> kein Geld mit meinen Seiten und Diensten verdiene und deshalb sind keine Telefonnummer und keine Adresse angegeben. Ich möchte mich, meine Familie und meine Freunde damit schützen, falls irgendwelche <Link href="https://de.wikipedia.org/wiki/Troll_(Netzkultur)" target="_blank">"Trolle"</Link> mir z.B. eine Pizza zu meiner Adresse schicken oder sogar etwas schlimmeres tun würden. Bitte respektieren Sie das.</Label>
             </Section>
             <Section>
-                <SubTitle>Inhalte</SubTitle>
-                <Text>Icons von <Link href="https://icons8.com/">Icons8</Link> und <Link href="https://feathericons.com/">FeatherIcons</Link></Text>
-            </Section>
-            <Section>
-                <BoldText>Quelle: <Link href="https://www.impressum-generator.de" target="_blank">impressum-generator.de</Link></BoldText>
+                <BoldText><Link href="https://www.impressum-generator.de" target="_blank">impressum-generator.de</Link></BoldText>
             </Section>
         </Container>
 

@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 
-import '@fontsource/inter/800.css';
+import '@fontsource/inter/600.css';
 
-const SmallTitle = styled.h3`
+const Strong = styled.strong`
+display: inline;
 font-family: var(--font-family);
-font-weight: 800;
-font-size: 1.5em;
+/* font-weight: 600; */
+/* font-size: 1.15rem; */
 text-rendering: optimizeLegibility;
 font-kerning: normal;
 font-feature-settings: 'kern', 'liga', 'clig', 'calt';
 -webkit-font-smoothing: antialiased;
 user-select: none;
-color: #000000;
 `;
 
-export default SmallTitle;
+export default Strong;

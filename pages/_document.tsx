@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext, DocumentInitialProps } from 'next/document'
-import { RenderPage, RenderPageResult } from 'next/dist/next-server/lib/utils';
+import { RenderPage, RenderPageResult } from 'next/dist/shared/lib/utils';
 
 import { ServerStyleSheet } from 'styled-components';
 

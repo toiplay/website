@@ -20,21 +20,24 @@ a {
 }
 
 ::selection {
-    background: #deeffd
+    background: #DEEFFD;
 }
 
 ::-webkit-scrollbar {
-    width: 8px
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent
+    transition: 300ms;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #ddd
+    transition: 300ms;
+    background: #DDDDDD;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #757575
+    transition: 300ms;
+    background: #757575;
 }

@@ -232,9 +232,8 @@ const IndexPage: React.FunctionComponent = (): React.ReactElement => (
         }}>
             <FeaturesContainer>
                 <Feature>
-                    <SmallTitle>🔓 Datenschutz im Fokus</SmallTitle>
-                    <Text>Ich erhebe keine personenbezogene Daten, solange es nicht nötig ist.</Text>
-                    <Label>* Nur bei freiwilliger Eingabe der Daten und der Einwilligung des Nutzers der <Link href="/privacy">Datenschutzerklärung</Link>.</Label>
+                    <SmallTitle>🔒 Datenschutz im Fokus</SmallTitle>
+                    <Text>Ich erhebe keine personenbezogene Daten, solange nicht unter freiwilliger Eingabe der Daten und der Einwilligung des Nutzers der <Link href="/privacy">Datenschutzerklärung</Link> erfolgt.</Text>
                 </Feature>
                 <Feature>
                     <SmallTitle>💰 Komplett kostenlos, ohne Werbung</SmallTitle>
@@ -247,11 +246,11 @@ const IndexPage: React.FunctionComponent = (): React.ReactElement => (
                 <Feature>
                     <SmallTitle>🔐 Bestmögliche Sicherheit</SmallTitle>
                     <Text>Ich sorge dafür, dass alle Daten und Verbindungen vollständig verschlüsselt werden.</Text>
-                    <Label>* In der Datenbank können nicht alle Informationen wie z.B. <Link href="https://de.wiktionary.org/wiki/ID" target="_blank">ID</Link>'s nicht verschlüsselt werden, da sonst die Funktionalität nicht gewährleistet werden kann.</Label>
+                    <Label>* In der Datenbank können nicht alle Informationen wie z.B. <Link href="https://de.wiktionary.org/wiki/ID" target="_blank" rel="noreferrer">ID</Link>'s nicht verschlüsselt werden, da sonst die Funktionalität nicht gewährleistet werden kann.</Label>
                 </Feature>
                 <Feature>
                     <SmallTitle>💻 Mit Leidenschaft</SmallTitle>
-                    <Text>Ich programmiere fast jeden Tag und probiere verschiedenste Dinge aus.</Text>
+                    <Text>Ich programmiere fast jeden Tag und probiere die neusten und verschiedensten Dinge aus.</Text>
                 </Feature>
                 <Feature>
                     <SmallTitle>🧒 Junge Zielgruppe</SmallTitle>

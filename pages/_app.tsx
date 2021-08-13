@@ -119,6 +119,7 @@ const Application: React.FunctionComponent<any> = ({ Component, pageProps }): Re
             <Footer>
                 <Link href="/imprint">Impressum</Link>
                 <Link href="/privacy">Datenschutz</Link>
+                <Link href="/licenses">Lizenzen</Link>
             </Footer>
         </React.Fragment>
     );

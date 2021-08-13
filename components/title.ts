@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 import '@fontsource/inter/900.css';
+import '@fontsource/inter/800.css';
+import '@fontsource/inter/700.css';
 
 const Title = styled.h1`
 font-family: var(--font-family);
@@ -24,6 +26,20 @@ export const PageTitle = styled(CenteredTitle)`
 margin-bottom: 100px;
 word-break: break-word;
 hyphens: auto;
+`;
+
+export const SecondaryTitle = styled(Title)`
+font-weight: 800;
+font-size: 2.5rem;
+`;
+
+export const CenteredSecondaryTitle = styled(SecondaryTitle)`
+text-align: center;
+`;
+
+export const TertiaryTitle = styled(Title)`
+font-weight: 800;
+font-size: 1.75rem;
 `;
 
 export default Title;

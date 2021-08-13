@@ -17,9 +17,8 @@ import Incident from '../interfaces/status/incident';
 import Status from '../enums/status/status';
 
 import Page from '@components/page';
-import Container from '@components/container';
-import { PageTitle } from '@components/title';
-import { CenteredSubTitle } from '@components/subtitle';
+import { CenteredContainer } from '@components/container';
+import { PageTitle, CenteredSecondaryTitle } from '@components/title';
 import Text from '@components/text';
 
 import List from '@components/list';
@@ -38,8 +37,28 @@ import iconOffline from '../assets/status/cross.svg';
 // @ts-ignore
 import iconPaused from '../assets/status/pause.svg';
 
-const StatusContainer = styled(Container)`
-max-width: 800px !important;
+const IconOnline = styled(iconOnline)`
+width: 24px;
+height: 24px;
+size: 24px;
+`;
+
+const IconUnknown = styled(iconUnknown)`
+width: 24px;
+height: 24px;
+size: 24px;
+`;
+
+const IconOffline = styled(iconOffline)`
+width: 24px;
+height: 24px;
+size: 24px;
+`;
+
+const IconPaused = styled(iconPaused)`
+width: 24px;
+height: 24px;
+size: 24px;
 `;
 
 const StatusInfo = styled(Text)`
@@ -96,7 +115,7 @@ color: #757575;
 
 moment.locale('de');
 
-const StatusPage: React.FunctionComponent<StatusResponse> = (props): React.ReactElement => {
+const StatusPage: React.FunctionComponent<StatusResponse> = (): React.ReactElement => {
 
     const [ lastRefresh, setLastRefresh ] = useState<number>(-1);
     const [ lastRefreshText, setLastRefreshText ] = useState<string>();
@@ -110,12 +129,64 @@ const StatusPage: React.FunctionComponent<StatusResponse> = (props): React.React
 
     useInterval(() => setLastRefreshText(`Zuletzt aktualisiert: ${moment.unix(lastRefresh).fromNow()}`), 1000, lastRefresh > 0);
 
+    const getStatusInfo = (services: Array<Service>): string => {
+        const offline: number = services.filter((service: Service): boolean => service.status === Status.DOWN).length;
+        if(offline === 1) {
+            return 'Es gibt ein Problem 🤨';
+        } else if(offline >= 1 && offline <= services.length / 2) {
+            return 'Es gibt ein paar Probleme 😒';
+        } else if(offline >= services.length / 2) {
+            return 'Es sieht Schlecht aus 🤮';
+        }
+        return 'Es sieht sehr gut aus 👌';
+    }
+
+    const getStatusIcon = (status: Status): React.ReactElement => {
+        if(status === Status.UP) {
+            return <IconOnline />;
+        } else if(status === Status.PROBABLY_DOWN || status === Status.CHECKING) {
+            return <IconUnknown />;
+        } else if(status === Status.DOWN) {
+            return <IconOffline />;
+        } else if(status === Status.MAINTENANCE) {
+            return <IconPaused />
+        }
+        return null;
+    }
+
+    const getStatusText = (status: Status): string => {
+        if(status === Status.UP) {
+            return 'Online';
+        } else if(status === Status.PROBABLY_DOWN || status === Status.CHECKING) {
+            return 'Unbekannt';
+        } else if(status === Status.DOWN) {
+            return 'Offline';
+        } else if(status === Status.MAINTENANCE) {
+            return 'Wartung';
+        }
+    }
+
+    const getIncidentReason = (incident: Incident): string => {
+        const past: boolean = (incident.timestamp + incident.duration + 300) < Math.floor(Date.now() / 1000);
+        if(incident.reason.code === '521') {
+            return 'aufgrund einer Offline-Phase des Webservers';
+        } else if(incident.reason.code === '502') {
+            return 'wegen einer falschen Einstellung des Dienstes bzw. Webservers';
+        } else if(incident.reason.code === '404') {
+            return `weil der Dienst offline ${past ? 'war' : 'ist'}`;
+        } else if(incident.reason.code === '403') {
+            return 'aufgrund fehlender Berechtigung zum Abfragen';
+        } else {
+            return 'aufgrund unbekannter Probleme';
+        }
+    }
+
     return (
         <Page>
             
             <Head>
 
-                <title>Steven Krahforst » Status</title>
+                <title>Steven Krahforst » 🔌 Status</title>
 
                 <meta name="robots" content="none" />
                 <meta name="googlebot" content="index,noarchive,noimageindex" />
@@ -136,9 +207,9 @@ const StatusPage: React.FunctionComponent<StatusResponse> = (props): React.React
 
             </Head>
 
-            <StatusContainer>
+            <CenteredContainer>
 
-                <PageTitle>Status</PageTitle>
+                <PageTitle>🔌 Status</PageTitle>
 
                 { data ? !! data.success ? (
                     <React.Fragment>
@@ -161,7 +232,7 @@ const StatusPage: React.FunctionComponent<StatusResponse> = (props): React.React
                         })() && (
                             <React.Fragment>
 
-                                <CenteredSubTitle>Vorfälle</CenteredSubTitle>
+                                <CenteredSecondaryTitle>Vorfälle</CenteredSecondaryTitle>
 
                                 <List>
                                     { data.data.map((service: Service) => service.incidents.map((incident: Incident): React.ReactElement => (
@@ -196,87 +267,11 @@ const StatusPage: React.FunctionComponent<StatusResponse> = (props): React.React
                     </List>
                 ) }
 
-            </StatusContainer>
+            </CenteredContainer>
 
         </Page>
     );
 
-}
-
-const IconOnline = styled(iconOnline)`
-width: 24px;
-height: 24px;
-size: 24px;
-`;
-
-const IconUnknown = styled(iconUnknown)`
-width: 24px;
-height: 24px;
-size: 24px;
-`;
-
-const IconOffline = styled(iconOffline)`
-width: 24px;
-height: 24px;
-size: 24px;
-`;
-
-const IconPaused = styled(iconPaused)`
-width: 24px;
-height: 24px;
-size: 24px;
-`;
-
-function getStatusIcon(status: Status): React.ReactElement {
-    if(status === Status.UP) {
-        return <IconOnline />;
-    } else if(status === Status.PROBABLY_DOWN || status === Status.CHECKING) {
-        return <IconUnknown />;
-    } else if(status === Status.DOWN) {
-        return <IconOffline />;
-    } else if(status === Status.MAINTENANCE) {
-        return <IconPaused />
-    }
-    return null;
-}
-
-function getStatusInfo(services: Array<Service>): string {
-    const offline: number = services.filter((service: Service): boolean => service.status === Status.DOWN).length;
-    if(offline === services.length - 1) {
-        return 'Es gibt ein Problem 🤨';
-    } else if(offline >= 1 && offline <= services.length / 2) {
-        return 'Es gibt ein paar Probleme 😒';
-    } else if(offline >= services.length / 2) {
-        return 'Es sieht Schlecht aus 🤮';
-    }
-    return 'Es sieht sehr gut aus 👌';
-}
-
-function getStatusText(status: Status): string {
-    if(status === Status.UP) {
-        return 'Online';
-    } else if(status === Status.PROBABLY_DOWN || status === Status.CHECKING) {
-        return 'Unbekannt';
-    } else if(status === Status.DOWN) {
-        return 'Offline';
-    } else if(status === Status.MAINTENANCE) {
-        return 'Wartung';
-    }
-}
-
-function getIncidentReason(incident: Incident): string {
-    const past: boolean = (incident.timestamp + incident.duration + 300) < Math.floor(Date.now() / 1000);
-    if(incident.reason.code === '521') {
-        return 'aufgrund einer Offline-Phase des Webservers';
-    } else if(incident.reason.code === '502') {
-        return 'wegen einer falschen Einstellung des Dienstes bzw. Webservers';
-    } else if(incident.reason.code === '404') {
-        return `weil der Dienst offline ${past ? 'war' : 'ist'}`;
-    } else if(incident.reason.code === '403') {
-        return 'aufgrund fehlender Berechtigung zum Abfragen';
-    } else {
-        return 'aufgrund unbekannter Probleme';
-    }
 }
 
 export default StatusPage;

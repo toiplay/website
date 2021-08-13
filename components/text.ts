@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
 
 const Text = styled.p`
 font-family: var(--font-family);
@@ -14,6 +15,7 @@ user-select: none;
 `;
 
 export const BoldText = styled(Text)`
+display: inline;
 font-weight: 600;
 `;
 

@@ -1,11 +1,21 @@
 const withOffline = require('next-offline');
 
-require('dotenv').config();
+const LicensePlugin = require('webpack-license-plugin');
 
 module.exports = withOffline({
     trailingSlash: true,
     poweredByHeader: false,
-    future: {
-        webpack5: true
+    webpack5: true,
+    webpack: (config) => {
+        if(config.mode === 'production') {
+            config.plugins.push(new LicensePlugin({
+                excludedPackageTest: (packageName, version) => {
+                    return packageName.startsWith('@types/') || packageName.startsWith('@krahforst/');
+                },
+                outputFilename: '../public/licenses.json',
+                replenishDefaultLicenseTexts: true
+            }));
+        }
+        return config;
     }
 });
