@@ -2,11 +2,11 @@ import React from 'react';
 
 import Head from 'next/head';
 
-import Text from '../components/text';
-import Label from '../components/label';
-import SmallTitle from '../components/smalltitle';
-import Title from '../components/title';
-import Link from '../components/link';
+import Text from '../../components/text';
+import Label from '../../components/label';
+import SmallTitle from '../../components/smalltitle';
+import Title from '../../components/title';
+import Link from '../../components/link';
 
 import { FadeInSection } from '../components/section';
 
