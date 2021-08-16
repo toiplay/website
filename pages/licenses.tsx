@@ -7,13 +7,13 @@ import Head from 'next/head';
 import fs from 'fs';
 import path from 'path';
 
-import Page from '@components/page';
+import Page from '../components/page';
 
-import Container from '@components/container';
-import { PageTitle } from '@components/title';
-import Section from '@components/section';
-import Link from '@components/link';
-import Text from '@components/text';
+import Container from '../components/container';
+import { PageTitle } from '../components/title';
+import Section from '../components/section';
+import Link from '../components/link';
+import Text from '../components/text';
 
 const Divider = styled.div`
 border-bottom: 1px solid #DDDDDD;

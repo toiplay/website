@@ -4,17 +4,16 @@ import Head from 'next/head';
 
 import fetch from 'node-fetch';
 
-import Page from '@components/page';
+import Page from '../components/page';
 
-import { CenteredContainer } from '@components/container';
-import { PageTitle, SecondaryTitle } from '@components/title';
-import Section from '@components/section';
-import Text from '@components/text';
+import { CenteredContainer } from '../components/container';
+import { PageTitle, SecondaryTitle } from '../components/title';
+import Section from '../components/section';
+import Text from '../components/text';
+import List from '../components/list';
+import { ListItemFlex, ListItemIcon } from '../components/list/item';
 
 import countries from 'i18n-iso-countries';
-import List from '@components/list';
-import { ListItemFlex, ListItemIcon } from '@components/list/item';
-
 countries.registerLocale(require('i18n-iso-countries/langs/de.json'));
 
 // https://github.com/annexare/Countries/blob/master/data/continents.json

@@ -1,6 +1,5 @@
 :root {
     --font-family: 'Inter', 'Helvetica Neue', 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', sans-serif;
-    --accent-color: #1952BE;
 }
 
 html,
@@ -8,6 +7,7 @@ body {
     padding: 0;
     margin: 0;
     font-family: var(--font-family);
+    scroll-behavior: smooth;
 }
 
 a {

@@ -7,8 +7,8 @@ import Head from 'next/head';
 import useSWR from 'swr';
 
 import moment from 'moment';
-
-import useInterval from '../hooks/useInterval';
+import 'moment/locale/de';
+moment.locale('de');
 
 import StatusResponse from '../interfaces/status/response';
 import Service from '../interfaces/status/service';
@@ -16,17 +16,17 @@ import Incident from '../interfaces/status/incident';
 
 import Status from '../enums/status/status';
 
-import Page from '@components/page';
-import { CenteredContainer } from '@components/container';
-import { PageTitle, CenteredSecondaryTitle } from '@components/title';
-import Text from '@components/text';
+import Page from '../components/page';
+import { CenteredContainer } from '../components/container';
+import { PageTitle, CenteredSecondaryTitle } from '../components/title';
+import Text from '../components/text';
 
-import List from '@components/list';
-import ListItem, { ListItemFlex } from '@components/list/item';
-import ListItemHeader from '@components/list/item/header';
-import ListItemFooter from '@components/list/item/footer';
+import List from '../components/list';
+import ListItem, { ListItemFlex } from '../components/list/item';
+import ListItemHeader from '../components/list/item/header';
+import ListItemFooter from '../components/list/item/footer';
 
-import Skeleton from '@components/skeleton';
+import Skeleton from '../components/skeleton';
 
 // @ts-ignore
 import iconOnline from '../assets/status/checkmark.svg';
@@ -113,21 +113,16 @@ color: #757575;
 }
 `;
 
-moment.locale('de');
-
 const StatusPage: React.FunctionComponent<StatusResponse> = (): React.ReactElement => {
 
-    const [ lastRefresh, setLastRefresh ] = useState<number>(-1);
     const [ lastRefreshText, setLastRefreshText ] = useState<string>();
     
     const fetcher = (url: string): Promise<StatusResponse> => fetch(url).then((res): Promise<StatusResponse> => {
-        setLastRefresh(Math.floor(Date.now() / 1000));
+        setLastRefreshText(`Zuletzt aktualisiert: ${moment.unix(Math.floor(Date.now() / 1000)).fromNow()}`);
         return res.json();
     });
 
-    const { data, error } = useSWR<StatusResponse>(`https://api.krahforst.dev/status/public`, fetcher);
-
-    useInterval(() => setLastRefreshText(`Zuletzt aktualisiert: ${moment.unix(lastRefresh).fromNow()}`), 1000, lastRefresh > 0);
+    const { data, error } = useSWR<StatusResponse>(`https://api.krahforst.dev/status`, fetcher);
 
     const getStatusInfo = (services: Array<Service>): string => {
         const offline: number = services.filter((service: Service): boolean => service.status === Status.DOWN).length;
@@ -211,14 +206,14 @@ const StatusPage: React.FunctionComponent<StatusResponse> = (): React.ReactEleme
 
                 <PageTitle>🔌 Status</PageTitle>
 
-                { data ? !! data.success ? (
+                { data ? data.services?.length > 0 ? (
                     <React.Fragment>
 
-                        <StatusInfo>{ getStatusInfo(data.data) }</StatusInfo>
+                        <StatusInfo>{ getStatusInfo(data.services) }</StatusInfo>
 
                         <List>
-                            { data.data.map((service: Service): React.ReactElement => (
-                                <ListItemFlex key={service.id}>
+                            { data.services.map((service: Service): React.ReactElement => (
+                                <ListItemFlex key={service.id} id={service.id}>
                                     { getStatusIcon(service.status) }
                                     <StatusText>{ service.name }</StatusText>
                                     <ResponseTimeText time={service.response_time}>{ service.response_time || 0 }ms</ResponseTimeText>
@@ -227,26 +222,24 @@ const StatusPage: React.FunctionComponent<StatusResponse> = (): React.ReactEleme
                             )) }
                         </List>
 
-                        { data.data.length > 0 && ((): boolean => {
-                            return data.data.filter((service: Service) => service.incidents.length > 0).length > 0;
-                        })() && (
+                        { data.incidents.length > 0 && (
                             <React.Fragment>
 
                                 <CenteredSecondaryTitle>Vorfälle</CenteredSecondaryTitle>
 
                                 <List>
-                                    { data.data.map((service: Service) => service.incidents.map((incident: Incident): React.ReactElement => (
-                                        <ListItem key={incident.id}>
+                                    { data.incidents.map((incident: Incident): React.ReactElement => (
+                                        <ListItem key={incident.id} id={incident.id}>
                                             <ListItemHeader>
                                                 <IconOffline />
-                                                <IncidentStatusText>{ service.name }</IncidentStatusText>
+                                                <IncidentStatusText>{ incident.service.name }</IncidentStatusText>
                                                 <IncidentDateText>{ moment.unix(incident.timestamp).fromNow() }</IncidentDateText>
                                             </ListItemHeader>
                                             <ListItemFooter>
                                                 <Text>Nicht erreichbar für { moment.unix((Date.now() / 1000) - incident.duration).fromNow(true) } { getIncidentReason(incident) }</Text>
                                             </ListItemFooter>
                                         </ListItem>
-                                    ))) }
+                                    )) }
                                 </List>
                                 
                             </React.Fragment>
@@ -256,7 +249,10 @@ const StatusPage: React.FunctionComponent<StatusResponse> = (): React.ReactEleme
 
                     </React.Fragment>
                 ) : (
-                    <p>Es ist ein unbekannter Fehler aufgetreten</p>
+                    <React.Fragment>
+                        <p>Es ist ein unbekannter Fehler aufgetreten</p>
+                        <p>Fehler: { error }</p>
+                    </React.Fragment>
                 ) : (
                     <List>
                         <Skeleton />

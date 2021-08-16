@@ -10,9 +10,9 @@ import path from 'path';
 
 import Head from 'next/head';
 
-import Page from '@components/page';
-import Container from '@components/container';
-import Markdown from '@components/markdown';
+import Page from '../../components/page';
+import Container from '../../components/container';
+import Markdown from '../../components/markdown';
 
 const docsDirectory: string = path.join(process.cwd(), 'docs');
 

@@ -1,5 +1,4 @@
 import Status from '../../enums/status/status';
-import Incident from './incident';
 
 interface Service {
 
@@ -7,7 +6,6 @@ interface Service {
     name: string
     response_time: number
     status: Status
-    incidents: Array<Incident>
 
 }
 

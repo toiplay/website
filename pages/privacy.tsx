@@ -2,15 +2,15 @@ import React from 'react';
 
 import Head from 'next/head';
 
-import Page from '@components/page';
+import Page from '../components/page';
 
-import Container from '@components/container';
-import { PageTitle, SecondaryTitle, TertiaryTitle } from '@components/title';
-import Section from '@components/section';
-import Link from '@components/link';
-import Text from '@components/text';
-import Strong from '@components/strong';
-import Label from '@components/label';
+import Container from '../components/container';
+import { PageTitle, SecondaryTitle, TertiaryTitle } from '../components/title';
+import Section from '../components/section';
+import Link from '../components/link';
+import Text from '../components/text';
+import Strong from '../components/strong';
+import Label from '../components/label';
 
 const PrivacyPage: React.FunctionComponent = (): React.ReactElement => (
     <Page>

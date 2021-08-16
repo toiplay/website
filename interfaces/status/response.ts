@@ -1,10 +1,10 @@
 import Service from './service';
+import Incident from './incident';
 
 interface StatusResponse {
 
-    success: boolean
-    code: string
-    data: Array<Service>
+    services: Array<Service>
+    incidents: Array<Incident>
 
 }
 

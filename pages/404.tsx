@@ -4,10 +4,10 @@ import styled from 'styled-components';
 
 import Head from 'next/head';
 
-import Page from '@components/page';
+import Page from '../components/page';
 
-import { CenteredTitle } from '@components/title';
-import Container from '@components/container';
+import { CenteredTitle } from '../components/title';
+import Container from '../components/container';
 
 const ErrorPageContainer = styled(Container)`
 /* position: absolute;

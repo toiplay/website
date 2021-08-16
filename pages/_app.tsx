@@ -4,7 +4,7 @@ import '../styles/globals.scss';
 
 import styled, { css } from 'styled-components';
 
-import Link from '@components/link';
+import Link from '../components/link';
 
 const Navbar = styled.nav<{ top: boolean }>`
 position: fixed;

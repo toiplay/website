@@ -4,6 +4,10 @@ interface Incident {
     timestamp: number
     duration: number
     type: number
+    service: {
+        id: number
+        name: string
+    }
     reason: {
         code: string
         detail: string

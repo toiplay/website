@@ -4,17 +4,17 @@ import Head from 'next/head';
 
 import Text from '../components/text';
 import Label from '../components/label';
-import SmallTitle from '@components/smalltitle';
+import SmallTitle from '../components/smalltitle';
+import Title from '../components/title';
+import Link from '../components/link';
+
+import { FadeInSection } from '../components/section';
 
 import social from '../social.json';
 
 import styled from 'styled-components';
 
-import email from 'util/mail';
-
-import { FadeInSection } from '@components/section';
-import Title from '@components/title';
-import Link from '@components/link';
+import email from '../util/mail';
 
 const MainTitle = styled(Title)`
 font-family: 'Inter', var(--font-family);
@@ -152,7 +152,7 @@ const IndexPage: React.FunctionComponent = (): React.ReactElement => (
             
             <title>Steven Krahforst</title>
 
-            <meta name="robots" content="none" />
+            <meta name="robots" content="index,noarchive,noimageindex" />
             <meta name="googlebot" content="index,noarchive,noimageindex" />
 
             <meta name="description" content="Webseite von Steven Krahforst" />
@@ -168,6 +168,8 @@ const IndexPage: React.FunctionComponent = (): React.ReactElement => (
             <meta name="twitter:title" content="Steven Krahforst Webseite" />
             <meta name="twitter:description" content="Webseite von Steven Krahforst" />
             <meta name="twitter:image" content="/icon.svg" />
+
+            <link rel="alternate" href="https://krahforst.dev/en" hrefLang="en" title="English" />
 
         </Head>
 

@@ -1,4 +1,11 @@
 {
-    "liveServer.settings.root": "/out",
-    "discord.enabled": true
+    "vsicons.associations.folders": [
+        {
+            "icon": "locale",
+            "extensions": [
+                "en"
+            ],
+            "format": "svg"
+        }
+    ]
 }

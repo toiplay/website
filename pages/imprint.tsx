@@ -2,14 +2,14 @@ import React from 'react';
 
 import Head from 'next/head';
 
-import Page from '@components/page';
+import Page from '../components/page';
 
-import Container from '@components/container';
-import { PageTitle, SecondaryTitle } from '@components/title';
-import Section from '@components/section';
-import Link from '@components/link';
-import Text, { BoldText } from '@components/text';
-import Label from '@components/label';
+import Container from '../components/container';
+import { PageTitle, SecondaryTitle } from '../components/title';
+import Section from '../components/section';
+import Link from '../components/link';
+import Text, { BoldText } from '../components/text';
+import Label from '../components/label';
 
 import email from 'util/mail';
 
