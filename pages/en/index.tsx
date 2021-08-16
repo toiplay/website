@@ -8,7 +8,7 @@ import SmallTitle from '../../components/smalltitle';
 import Title from '../../components/title';
 import Link from '../../components/link';
 
-import { FadeInSection } from '../components/section';
+import { FadeInSection } from '../../components/section';
 
 import social from '../../social.json';
 
